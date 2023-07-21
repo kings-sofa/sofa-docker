@@ -37,11 +37,11 @@ This method requires the use of the proper NVIDIA drivers, which can be a bit tr
 
 ```bash
 xhost local:root
-docker run -it --net=host --gpus=all \ 
+docker run -it --net=host --gpus=all \
 --env="NVIDIA_DRIVER_CAPABILITIES=all" \
---env="DISPLAY" --env="QT_X11_NO_MITSHM=1" \ 
---env="QTWEBENGINE_DISABLE_SANDBOX=1" \ 
---volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \ 
+--env="DISPLAY" --env="QT_X11_NO_MITSHM=1" \
+--env="QTWEBENGINE_DISABLE_SANDBOX=1" \
+--volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
 mikelitu/sofa-docker:latest
 ```
 
@@ -53,23 +53,23 @@ If we want to use the haptic device inside the Docker container we have two diff
 
 ```bash
 xhost local:root
-docker run -it --net=host \ 
+docker run -it --net=host \
 --env="NVIDIA_DRIVER_CAPABILITIES=all" \
---env="DISPLAY" --env="QT_X11_NO_MITSHM=1" \ 
---env="QTWEBENGINE_DISABLE_SANDBOX=1" \ 
+--env="DISPLAY" --env="QT_X11_NO_MITSHM=1" \
+--env="QTWEBENGINE_DISABLE_SANDBOX=1" \
 --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
---device=/dev/ttyACM0 \ 
+--device=/dev/ttyACM0 \
 mikelitu/sofa-docker:latest
 ```
 or
 ```bash
 xhost local:root
-docker run -it --net=host \ 
+docker run -it --net=host \
 --env="NVIDIA_DRIVER_CAPABILITIES=all" \
---env="DISPLAY" --env="QT_X11_NO_MITSHM=1" \ 
---env="QTWEBENGINE_DISABLE_SANDBOX=1" \ 
+--env="DISPLAY" --env="QT_X11_NO_MITSHM=1" \
+--env="QTWEBENGINE_DISABLE_SANDBOX=1" \
 --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
---volume=/dev/ttyACM0:/dev/Geomagic \ 
+--volume=/dev/ttyACM0:/dev/Geomagic \
 mikelitu/sofa-docker:latest
 ```
 
