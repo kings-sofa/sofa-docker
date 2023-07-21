@@ -18,8 +18,8 @@ In order to have GUI capabilities inside Docker we have two different options. T
 xhost local:root
 docker run -it --net=host \
 --env="DISPLAY" \
---env="QT_X11_NO_MITSMH=1" \ # Solves a problem with QT
---env="QTWEBENGINE_DISABLE_SANDBOX=1" \ # Solves a problem of running QT based applications at root user
+--env="QT_X11_NO_MITSMH=1" \
+--env="QTWEBENGINE_DISABLE_SANDBOX=1" \
 --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
 mikelitu/sofa-docker:latest
 ```
